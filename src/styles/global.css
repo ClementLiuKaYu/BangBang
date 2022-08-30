@@ -1,0 +1,18 @@
+@font-face {
+    font-family: BadBoyAndy;
+    src: url('$lib/fonts/badboyandy-Regular.ttf');
+}
+
+@font-face {
+    font-family: Andrew;
+    src: url('$lib/fonts/andrew-Regular.ttf');
+}
+
+body {
+	margin: 0;
+	padding: 0 5vw;
+    background-image: url('$lib/images/background.png');
+    background-size: cover;
+	box-sizing: border-box;
+	font-family: Roboto, sans-serif;
+}
