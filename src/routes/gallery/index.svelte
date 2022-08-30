@@ -1,6 +1,7 @@
 <script context="module">
 	import { initializeApp } from 'firebase/app';
 	import { getFirestore, collection, getDocs } from 'firebase/firestore';
+	import { getStorage, ref, getDownloadURL } from 'firebase/storage';
 
 	const firebaseConfig = {
 		apiKey: 'AIzaSyBVCSuGuWCt95tEKRGBYaFuZQErHIlHfIM',
@@ -11,16 +12,23 @@
 		appId: '1:540414532551:web:4811ef1fdc640390dcd7e2',
 		measurementId: 'G-HKKMVXR8XH'
 	};
+	const app = initializeApp(firebaseConfig);
+	const db = getFirestore(app);
+	const storage = getStorage(app);
 
 	export async function load() {
-		const app = initializeApp(firebaseConfig);
-		const db = getFirestore(app);
 		let data = [];
 
 		const querySnapshot = await getDocs(collection(db, 'gallery'));
-		querySnapshot.forEach((doc) => {
-			data.push(doc.data());
+		querySnapshot.forEach(async (doc) => {
+			// getDownloadURL(ref(storage, doc.data().img))
+			data.push({ ...doc.data() });
 		});
+
+		for (let i = 0; i < data.length; i++) {
+			const url = await getDownloadURL(ref(storage, data[i].img));
+			data[i].img = url;
+		}
 
 		return { props: { data } };
 	}
@@ -63,7 +71,7 @@
 	<div class="row row-cols-md-2 row-cols-1 gx-5">
 		{#each data as nft}
 			<div class="imgCard col">
-				<img src={nft1} alt="" on:click={() => onclick('gallery/nft1')} />
+				<img src={nft.img} alt="" on:click={() => onclick('gallery/nft1')} />
 				<br /> <br />
 				<div class="paint" id={randomColor()} style="width: fit-content;">
 					<h3>{nft.title}</h3>
