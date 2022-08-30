@@ -1,39 +1,8 @@
-<script context="module">
-	import { initializeApp } from 'firebase/app';
-	import { getFirestore, collection, getDocs } from 'firebase/firestore';
-
-	const firebaseConfig = {
-		apiKey: 'AIzaSyBVCSuGuWCt95tEKRGBYaFuZQErHIlHfIM',
-		authDomain: 'bang-bang-website.firebaseapp.com',
-		projectId: 'bang-bang-website',
-		storageBucket: 'bang-bang-website.appspot.com',
-		messagingSenderId: '540414532551',
-		appId: '1:540414532551:web:4811ef1fdc640390dcd7e2',
-		measurementId: 'G-HKKMVXR8XH'
-	};
-
-	export async function load() {
-		const app = initializeApp(firebaseConfig);
-		const db = getFirestore(app);
-		let data = [];
-
-		const querySnapshot = await getDocs(collection(db, 'gallery'));
-		querySnapshot.forEach((doc) => {
-			data.push(doc.data());
-		});
-
-		return { props: { data } };
-	}
-</script>
-
 <script>
 	import nft1 from '$lib/images/NFT_1.png';
 	import nft2 from '$lib/images/NFT_2.png';
 	import nft3 from '$lib/images/NFT_3.png';
 	import nft4 from '$lib/images/NFT_4.png';
-	import { each } from 'svelte/internal';
-
-	export let data;
 
 	var onclick = (link) => {
 		location.href = link;
@@ -54,28 +23,28 @@
 
 <div class="boxTitle">
 	<div id="title">
-		<div class="paint" id={randomColor()}>gallery</div>
+		<div class="paint" id={randomColor()}>bang your news</div>
 	</div>
 </div>
 <br />
 <br />
 <div>
 	<div class="row row-cols-md-2 row-cols-1 gx-5">
-		{#each data as nft}
-			<div class="imgCard col">
-				<img src={nft1} alt="" on:click={() => onclick('gallery/nft1')} />
-				<br /> <br />
-				<div class="paint" id={randomColor()} style="width: fit-content;">
-					<h3>{nft.title}</h3>
-				</div>
-				<br />
-				{#each nft.info as item}
-					<p>{item}</p>
-				{/each}
-				<br />
+		<div class="imgCard col">
+			<img src={nft1} alt="" on:click={() => onclick('gallery/nft1')} />
+			<br /> <br />
+			<div class="paint" id={randomColor()} style="width: fit-content;">
+				<h3>some text</h3>
 			</div>
-		{/each}
-		<!-- <div class="imgCard col">
+			<br />
+			<p>
+				some description for this nft Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit
+				impedit pariatur recusandae repellat sunt reprehenderit nobis optio voluptate, dolorum ea et
+				reiciendis cum consequatur consequuntur accusamus ratione molestias facere quidem?
+			</p>
+			<br />
+		</div>
+		<div class="imgCard col">
 			<img src={nft2} alt="" on:click={() => onclick('gallery/nft2')} />
 			<br /> <br />
 			<div class="paint" id={randomColor()} style="width: fit-content;">
@@ -113,7 +82,7 @@
 				impedit pariatur recusandae repellat sunt reprehenderit nobis optio voluptate, dolorum ea et
 				reiciendis cum consequatur consequuntur accusamus ratione molestias facere quidem?
 			</p>
-		</div> -->
+		</div>
 	</div>
 </div>
 

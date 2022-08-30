@@ -1,3 +1,18 @@
+<script context="module">
+	import { initializeApp } from 'firebase/app';
+	const firebaseConfig = {
+		apiKey: 'AIzaSyBVCSuGuWCt95tEKRGBYaFuZQErHIlHfIM',
+		authDomain: 'bang-bang-website.firebaseapp.com',
+		projectId: 'bang-bang-website',
+		storageBucket: 'bang-bang-website.appspot.com',
+		messagingSenderId: '540414532551',
+		appId: '1:540414532551:web:4811ef1fdc640390dcd7e2',
+		measurementId: 'G-HKKMVXR8XH'
+	};
+
+	const app = initializeApp(firebaseConfig);
+</script>
+
 <script>
 	let list = [
 		{
