@@ -16,6 +16,7 @@
 		appId: '1:540414532551:web:4811ef1fdc640390dcd7e2',
 		measurementId: 'G-HKKMVXR8XH'
 	};
+
 	const app = initializeApp(firebaseConfig);
 	const db = getFirestore(app);
 	const storage = getStorage(app);
@@ -24,7 +25,7 @@
 	let imgUrl = '';
 	let details = [];
 
-	getDoc(doc(db, 'gallery', $page.params.id)).then((doc) => {
+	getDoc(doc(db, 'merch', $page.params.id)).then((doc) => {
 		console.log(doc.data());
 		title = doc.data().title;
 		details = doc.data().details;

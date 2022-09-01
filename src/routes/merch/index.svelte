@@ -12,6 +12,7 @@
 		appId: '1:540414532551:web:4811ef1fdc640390dcd7e2',
 		measurementId: 'G-HKKMVXR8XH'
 	};
+
 	const app = initializeApp(firebaseConfig);
 	const db = getFirestore(app);
 	const storage = getStorage(app);
@@ -19,7 +20,7 @@
 	export async function load() {
 		let data = [];
 
-		const querySnapshot = await getDocs(collection(db, 'news'));
+		const querySnapshot = await getDocs(collection(db, 'merch'));
 		querySnapshot.forEach(async (doc) => {
 			console.log(doc.id);
 			// getDownloadURL(ref(storage, doc.data().img))
@@ -39,7 +40,7 @@
 	export let data;
 
 	var onclick = (link) => {
-		location.href = 'news/' + link;
+		location.href = 'merch/' + link;
 	};
 
 	var colors = ['green', 'blue', 'grass', 'peach', 'yellow', 'orange', 'purple'];
@@ -57,7 +58,7 @@
 
 <div class="boxTitle">
 	<div id="title">
-		<div class="paint" id={randomColor()}>bang your news</div>
+		<div class="paint" id={randomColor()}>merch?</div>
 	</div>
 </div>
 <br />

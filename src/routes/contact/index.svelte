@@ -17,6 +17,10 @@
 	};
 
 	var width;
+
+	var onclick = (link) => {
+		location.href = link;
+	};
 </script>
 
 <svelte:window bind:innerWidth={width} />
@@ -31,13 +35,39 @@
 
 	<div class="contactRow">
 		<div class="contactCol">
-			<img src={telegram} alt="" style="transform: rotate(10deg);" />
-			<img src={discord} alt="" style="transform: rotate(-10deg);" />
-			<img src={instagram} alt="" style="transform: rotate(-20deg);" />
+			<img
+				src={telegram}
+				alt=""
+				style="transform: rotate(10deg); cursor: pointer;"
+				on:click={() => onclick('https://t.me/+QcWRmoVfgUlkMjhl')}
+			/>
+			<img
+				src={discord}
+				alt=""
+				style="transform: rotate(-10deg); cursor: pointer;"
+				on:click={() => onclick('https://discord.gg/Vgzay6QRQv')}
+			/>
+			<img
+				src={instagram}
+				alt=""
+				style="transform: rotate(-20deg); cursor: pointer;"
+				on:click={() => onclick('https://instagram.com/bangbang.gg_nftgallery?igshid=YmMyMTA2M2Y=')}
+			/>
 		</div>
 		<div class="contactCol">
-			<img src={twitter} alt="" style="transform: rotate(10deg);" />
-			<img src={facebook} alt="" style="transform: rotate(20deg);" />
+			<img
+				src={twitter}
+				alt=""
+				style="transform: rotate(10deg); cursor: pointer;"
+				on:click={() => onclick('https://twitter.com/bang_bang_gg?s=21&t=oBC5oTQTIcBFcLlBbf4teA')}
+			/>
+			<img
+				src={facebook}
+				alt=""
+				style="transform: rotate(20deg); cursor: pointer;"
+				on:click={() =>
+					onclick('https://www.facebook.com/Bang-banggg-NFT-Gallery-104860165622105/')}
+			/>
 		</div>
 	</div>
 </div>

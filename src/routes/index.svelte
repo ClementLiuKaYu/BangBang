@@ -38,14 +38,14 @@
 		},
 		{
 			title: 'bang your news',
-			link: '',
+			link: 'news',
 			id: 'purple',
 			pos: 'top: 35%; left: 70%; transform: rotate(-5deg); width:25%;',
 			posMob: 'bottom: 40%; right: 0%; transform: rotate(15deg); width:50%;'
 		},
 		{
 			title: 'merch?',
-			link: '',
+			link: 'merch',
 			id: 'peach',
 			pos: 'top: 40%; left: 40%; transform: rotate(10deg); width:30%;',
 			posMob: 'top: 40%; left: 10%; transform: rotate(5deg); width:40%;'

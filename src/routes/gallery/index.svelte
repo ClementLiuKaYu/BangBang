@@ -21,8 +21,9 @@
 
 		const querySnapshot = await getDocs(collection(db, 'gallery'));
 		querySnapshot.forEach(async (doc) => {
+			console.log(doc.id);
 			// getDownloadURL(ref(storage, doc.data().img))
-			data.push({ ...doc.data() });
+			data.push({ ...doc.data(), id: doc.id });
 		});
 
 		for (let i = 0; i < data.length; i++) {
@@ -35,16 +36,10 @@
 </script>
 
 <script>
-	import nft1 from '$lib/images/NFT_1.png';
-	import nft2 from '$lib/images/NFT_2.png';
-	import nft3 from '$lib/images/NFT_3.png';
-	import nft4 from '$lib/images/NFT_4.png';
-	import { each } from 'svelte/internal';
-
 	export let data;
 
 	var onclick = (link) => {
-		location.href = link;
+		location.href = 'gallery/' + link;
 	};
 
 	var colors = ['green', 'blue', 'grass', 'peach', 'yellow', 'orange', 'purple'];
@@ -71,7 +66,7 @@
 	<div class="row row-cols-md-2 row-cols-1 gx-5">
 		{#each data as nft}
 			<div class="imgCard col">
-				<img src={nft.img} alt="" on:click={() => onclick('gallery/nft1')} />
+				<img src={nft.img} alt="" on:click={() => onclick(nft.id)} />
 				<br /> <br />
 				<div class="paint" id={randomColor()} style="width: fit-content;">
 					<h3>{nft.title}</h3>
@@ -150,9 +145,8 @@
 		justify-content: center;
 		align-items: center;
 		text-align: center;
-		/* background-image: url('$lib/images/green.png'); */
-		background-size: cover;
-		padding: 20px;
+		background-size: contain;
+		padding: 0px;
 	}
 	.imgCard {
 		display: flex;
@@ -171,6 +165,17 @@
 	}
 	p {
 		padding: 0 8%;
+		font-size: x-large;
+	}
+	@media (max-width: 960px) {
+		p {
+			font-size: medium;
+		}
+	}
+	@media (max-width: 640px) {
+		p {
+			font-size: medium;
+		}
 	}
 	#grass {
 		background-image: url('$lib/images/green.png');

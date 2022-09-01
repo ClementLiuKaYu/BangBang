@@ -22,14 +22,18 @@
 
 	let title = '';
 	let imgUrl = '';
+	let imgUrl2 = '';
 	let details = [];
 
-	getDoc(doc(db, 'gallery', $page.params.id)).then((doc) => {
+	getDoc(doc(db, 'news', $page.params.id)).then((doc) => {
 		console.log(doc.data());
 		title = doc.data().title;
 		details = doc.data().details;
 		getDownloadURL(ref(storage, doc.data().img)).then((str) => {
 			imgUrl = str;
+		});
+		getDownloadURL(ref(storage, doc.data().img2)).then((str) => {
+			imgUrl2 = str;
 		});
 	});
 
@@ -69,7 +73,7 @@
 
 <div>
 	<div class="col-8 offset-2">
-		<img src={imgUrl} alt="" />
+		<img src={imgUrl2} alt="" />
 		<br /><br />
 		<!-- <h3 class="paint" id={randomColor()} style="width: fit-content;">some text</h3> -->
 		<br />
@@ -87,6 +91,16 @@
 		padding: 0 8%;
 		font-size: large;
 	}
+	.paint {
+		aspect-ratio: 2000/650;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+		/* background-image: url('$lib/images/green.png'); */
+		background-size: contain;
+		padding: 20px;
+	}
 	@media (max-width: 960px) {
 		p {
 			font-size: medium;
@@ -96,16 +110,6 @@
 		p {
 			font-size: medium;
 		}
-	}
-	.paint {
-		aspect-ratio: 2000/650;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		text-align: center;
-		/* background-image: url('$lib/images/green.png'); */
-		background-size: cover;
-		padding: 20px;
 	}
 	#grass {
 		background-image: url('$lib/images/green.png');
