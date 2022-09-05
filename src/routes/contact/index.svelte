@@ -59,7 +59,7 @@
 				src={twitter}
 				alt=""
 				style="transform: rotate(10deg); cursor: pointer;"
-				on:click={() => onclick('https://twitter.com/bang_bang_gg?s=21&t=oBC5oTQTIcBFcLlBbf4teA')}
+				on:click={() => onclick('https://twitter.com/bang_NFTGallery')}
 			/>
 			<img
 				src={facebook}

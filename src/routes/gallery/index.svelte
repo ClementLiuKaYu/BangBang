@@ -63,12 +63,12 @@
 <br />
 <br />
 <div>
-	<div class="row row-cols-md-2 row-cols-1 gx-5">
+	<div class="row row-cols-lg-3 row-cols-md-2 row-cols-1 gx-5">
 		{#each data as nft}
 			<div class="imgCard col">
 				<img src={nft.img} alt="" on:click={() => onclick(nft.id)} />
 				<br /> <br />
-				<div class="paint" id={randomColor()} style="width: fit-content;">
+				<div class="paint paintSub" id={randomColor()} style="width: fit-content;">
 					<h3>{nft.title}</h3>
 				</div>
 				<br />
@@ -78,45 +78,6 @@
 				<br />
 			</div>
 		{/each}
-		<!-- <div class="imgCard col">
-			<img src={nft2} alt="" on:click={() => onclick('gallery/nft2')} />
-			<br /> <br />
-			<div class="paint" id={randomColor()} style="width: fit-content;">
-				<h3>some text</h3>
-			</div>
-			<br />
-			<p>
-				some description for this nft Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit
-				impedit pariatur recusandae repellat sunt reprehenderit nobis optio voluptate, dolorum ea et
-				reiciendis cum consequatur consequuntur accusamus ratione molestias facere quidem?
-			</p>
-		</div>
-		<div class="imgCard col">
-			<img src={nft3} alt="" on:click={() => onclick('gallery/nft3')} />
-			<br /><br />
-			<div class="paint" id={randomColor()} style="width: fit-content;">
-				<h3>some text</h3>
-			</div>
-			<br />
-			<p>
-				some description for this nft Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit
-				impedit pariatur recusandae repellat sunt reprehenderit nobis optio voluptate, dolorum ea et
-				reiciendis cum consequatur consequuntur accusamus ratione molestias facere quidem?
-			</p>
-		</div>
-		<div class="imgCard col">
-			<img src={nft4} alt="" on:click={() => onclick('gallery/nft4')} />
-			<br /><br />
-			<div class="paint" id={randomColor()} style="width: fit-content;">
-				<h3>some text</h3>
-			</div>
-			<br />
-			<p>
-				some description for this nft Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit
-				impedit pariatur recusandae repellat sunt reprehenderit nobis optio voluptate, dolorum ea et
-				reiciendis cum consequatur consequuntur accusamus ratione molestias facere quidem?
-			</p>
-		</div> -->
 	</div>
 </div>
 
@@ -136,7 +97,7 @@
 		align-items: center;
 		text-align: center;
 		font-family: Andrew;
-		font-size: x-large;
+		font-size: 35px;
 		padding: 20px;
 	}
 	.paint {
@@ -148,6 +109,11 @@
 		background-size: contain;
 		padding: 0px;
 	}
+
+	.paintSub {
+		width: 100%;
+	}
+
 	.imgCard {
 		display: flex;
 		flex-direction: column;
@@ -165,7 +131,7 @@
 	}
 	p {
 		padding: 0 8%;
-		font-size: x-large;
+		font-size: large;
 	}
 	@media (max-width: 960px) {
 		p {

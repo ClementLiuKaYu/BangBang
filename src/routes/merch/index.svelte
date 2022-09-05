@@ -69,7 +69,7 @@
 			<div class="imgCard col">
 				<img src={nft.img} alt="" on:click={() => onclick(nft.id)} />
 				<br /> <br />
-				<div class="paint" id={randomColor()} style="width: fit-content;">
+				<div class="paint paintSub" id={randomColor()} style="width: fit-content;">
 					<h3>{nft.title}</h3>
 				</div>
 				<br />
@@ -137,7 +137,7 @@
 		align-items: center;
 		text-align: center;
 		font-family: Andrew;
-		font-size: x-large;
+		font-size: 35px;
 		padding: 20px;
 	}
 	.paint {
@@ -150,6 +150,11 @@
 		background-size: cover;
 		padding: 0px;
 	}
+
+	.paintSub {
+		width: 100%;
+	}
+
 	.imgCard {
 		display: flex;
 		flex-direction: column;
@@ -167,7 +172,7 @@
 	}
 	p {
 		padding: 0 8%;
-		font-size: x-large;
+		font-size: large;
 	}
 	@media (max-width: 960px) {
 		p {
