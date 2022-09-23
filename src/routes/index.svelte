@@ -16,6 +16,13 @@
 <script>
 	let list = [
 		{
+			title: 'media exposure',
+			link: 'media',
+			id: 'purple',
+			pos: 'top: 18%; left: 10%; transform: rotate(-15deg); width:25%;',
+			posMob: 'top: 10%; left: 0%; transform: rotate(-25deg); width:40%;'
+		},
+		{
 			title: 'events',
 			link: '',
 			id: 'grass',
@@ -27,7 +34,7 @@
 			link: 'gallery',
 			id: 'orange',
 			pos: 'top: 15%; left: 35%; transform: rotate(-10deg); width:25%;',
-			posMob: 'top: 5%; left: 20%; transform: rotate(-5deg); width:60%;'
+			posMob: 'top: 3%; left: 38%; transform: rotate(5deg); width:55%;'
 		},
 		{
 			title: 'contact me daddy~',

@@ -19,7 +19,7 @@
 	export async function load() {
 		let data = [];
 
-		const querySnapshot = await getDocs(collection(db, 'gallery'));
+		const querySnapshot = await getDocs(collection(db, 'media'));
 		querySnapshot.forEach(async (doc) => {
 			console.log(doc.data().link);
 			// getDownloadURL(ref(storage, doc.data().img))
@@ -57,7 +57,7 @@
 
 <div class="boxTitle">
 	<div id="title">
-		<div class="paint" id={randomColor()}>gallery</div>
+		<div class="paint" id={randomColor()}>media exposure</div>
 	</div>
 </div>
 <br />
@@ -66,7 +66,9 @@
 	<div class="row row-cols-lg-3 row-cols-md-2 row-cols-1 gx-5">
 		{#each data as nft}
 			<div class="imgCard col">
-				<img src={nft.img} alt="" on:click={() => onclick(nft.id)} />
+				<a href={nft.link} target="_blank">
+					<img src={nft.img} alt="" />
+				</a>
 				<br /> <br />
 				<div class="paint paintSub" id={randomColor()} style="width: fit-content;">
 					<h3>{nft.title}</h3>

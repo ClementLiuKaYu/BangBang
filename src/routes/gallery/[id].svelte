@@ -22,12 +22,15 @@
 
 	let title = '';
 	let imgUrl = '';
+	let link = '';
+	let linkDes = '';
 	let details = [];
 
 	getDoc(doc(db, 'gallery', $page.params.id)).then((doc) => {
-		console.log(doc.data());
 		title = doc.data().title;
 		details = doc.data().details;
+		if (doc.data().link != undefined) link = doc.data().link;
+		if (doc.data().linkDescription != undefined) linkDes = doc.data().linkDescription;
 		getDownloadURL(ref(storage, doc.data().img)).then((str) => {
 			imgUrl = str;
 		});
@@ -76,6 +79,7 @@
 		{#each details as detail}
 			<p>{detail}</p>
 		{/each}
+		<p>{linkDes} <a href={link} target="_blank">{link}</a></p>
 	</div>
 </div>
 
